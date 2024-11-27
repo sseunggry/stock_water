@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+@use "styles/util/index.scss" as *;
+
+//default
+html{
+    font-size: $body-fz;
+    font-weight: 400;
+    line-height: $line-height;
+    color: $base-color;
+
+    &[lang="ko-KR"], &[lang="ko"]{
+        font-family: $font-family-ko;
+    }
+    &[lang="en"], *[lang="en"]{
+        font-family: $font-family-en;
+    }
+    
+    @media (max-width: 720px) {
+        //font-size: $body-fz-mo;
+    }
+}
+
+/* font */
+.page-tit{
+    display: flex;
+    align-items: center;
+    margin: var(--space-11) 0 var(--gap-5);
+    color: var(--color-text-bolder);
+    font-size: var(--typo-title-xlarge);
+    font-weight: 600;
+
+    .btn{
+        margin-left: auto;
+    }
+}
+.sec-tit{
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--gap-5);
+    color: var(--color-text-bolder);
+    font-size: var(--typo-title-medium);
+    font-weight: 600;
+
+    .btn{
+        margin-left: auto;
+    }
+    .badge{
+        margin-left: auto;
+    }
+}
+.tit{
+    &-xl{
+        font-size: var(--typo-title-xlarge);
+        font-weight: 700;
+    }
+    &-l{
+        font-size: var(--typo-title-large);
+        font-weight: 600;
+    }
+    &-m{
+        font-size: var(--typo-title-medium);
+        font-weight: 600;
+    }
+    &-s{
+        font-size: var(--typo-title-small);
+        font-weight: 600;
+    }
+}
+.txt{
+    &-m{
+        font-size: var(--typo-body-medium);
+        font-weight: 600;
+    }
+    &-s{
+        font-size: var(--typo-body-small);
+    }
+    &-xs{
+        font-size: var(--typo-body-xsmall);
+    }
+}
+
+/* color */
+.c-point{
+    color: var(--color-text-primary) !important;
+}
+.c-white{
+    color: var(--color-text-white) !important;
+}
+
+/* font-style */
+.bold{
+    font-weight: 700;
+}
+
+
+/* common */
+img{
+    width: 100%;
+}
+
+/* blind */
+.blind {
+    @include blind();
+}
+
+/* scroll */
+.scroll-x{
+    @include scroll-x();
+}
+
+/* hr */
+hr{
+    &.divider{
+        display: block;
+        @include scroll-x();
+        height: var(--border-width-large);
+        background-color: var(--color-border-basic);
+    }
+}
+
+.bg-gray{
+    background-color: var(--color-bg-gray-light);
+
+    .header{
+        background-color: var(--color-bg-gray-light);
+    }
+}
+
+.box-line{
+    //padding: 2rem;
+    border: var(--border-width) solid var(--color-border-dark);
+    border-radius: var(--border-radius-large);
+}
+
+/* space */
+$position: (t:top, b:bottom, r:right, l: left);
+$total: 10;
+
+@each $abbr, $pos in $position {
+    @for $i from 0 to $total {
+        .m#{$abbr}-#{$i} {margin-#{$pos}: $i*10px !important;}
+        .p#{$abbr}-#{$i} {padding-#{$pos}: $i*10px !important;}
+    }
+}

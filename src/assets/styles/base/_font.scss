@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+@use "styles/util/index.scss" as *;
+
+$fonts-ko: (Regular: 400, Medium: 500, Bold: 700);
+$fonts-en: (Light: 300, Regular: 400, Medium: 500, Bold: 700);
+
+@each $font, $weight in $fonts-ko{
+    @font-face{
+        @include font('NotoSansKR', 'NotoSansKR#{$font}', 'woff', #{$weight});
+        font-style: normal;
+    }
+}
+
+@each $font, $weight in $fonts-en{
+    @font-face{
+        @include font('Pretendard', 'Pretendard-#{$font}', 'woff', #{$weight});
+        font-style: normal;
+    }
+}

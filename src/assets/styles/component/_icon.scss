@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.icon{
+    display: inline-flex;
+
+    $names: back, delete, delete-fill, search, cart, alarm, arrow, home, order, qr, my, call, together, plus, like, share;
+    @each $name in $names {
+        &-#{$name}{
+            @include icon('#{$name}.svg');
+        }
+    }
+
+    &-arrow{
+        &.right{
+            transform: rotate(-90deg);
+        }
+        &.left{
+            transform: rotate(90deg);
+        }
+        &.top{
+            transform: rotate(180deg);
+        }
+    }
+}
