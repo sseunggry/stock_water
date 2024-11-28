@@ -1,3 +1,79 @@
 @use "styles/util/index.scss" as *;
-@use "./base/index.scss" as *;
-//@use "./component" as *;
+@use "styles/base/index.scss" as *;
+
+//layout
+.container{
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1280px;
+    min-height: calc(100vh - 52px);
+}
+
+//header
+.header{
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 52px;
+    //border-bottom: 1px solid #ddd;
+    //background-color: #fff;
+    background-color: #000;
+
+    .logo{
+        color: #fff;
+        font-family: 'Pretendard', sans-serif;
+        font-size: 16px;
+        font-weight: 900;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .menu{
+        .icon-menu{
+            background-color: #fff;
+        }
+        .menu-list{
+            display: none;
+        }
+    }
+}
+
+//typo 24 20 18 16 14 12
+.page-tit{
+    margin-bottom: 40px;
+    font-size: 24px;
+    font-weight: 700;
+}
+.sec-tit{
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.desc{
+    margin-top: 8px;
+    font-size: 16px;
+    color: #666;
+}
+
+//section
+section{
+    + section{
+        margin-top: 40px;
+    }
+}
+
+//hr
+hr{
+    &.divider{
+        display: block;
+        @include scroll-x();
+        margin-top: 40px;
+        margin-bottom: 40px;
+        height: var(--border-width-large);
+        background-color: var(--color-border-basic);
+    }
+}
+

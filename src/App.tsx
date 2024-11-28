@@ -1,7 +1,7 @@
 import {BrowserRouter} from 'react-router-dom';
 
-import './assets/styles/common.scss';
-import './assets/styles/content.scss';
+import 'styles/common.scss';
+import 'styles/content.scss';
 import Routes from './routes/AppRoutes';
 
 function App() {
